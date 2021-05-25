@@ -1,28 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import Api from '../firebase';
 
 export default function TableComponent() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    setUsers([
-      {
-        name: 'Victor Gabriel',
-        age: '18',
-        status: 'married',
-        cpf: '535.054.028-93',
-        city: 'Ubatuba',
-        state: 'São Paulo',
-      },
-      {
-        name: 'Camilly Santos',
-        age: '18',
-        status: 'married',
-        cpf: '535.054.028-93',
-        city: 'Ubatuba',
-        state: 'São Paulo',
-      },
-    ]);
-  }, []);
+    const getPerson = async () => {
+      const results = await Api.takePerson();
+      setUsers(results);
+    };
+
+    getPerson();
+  });
 
   return (
     <div className="flex justify-center">
