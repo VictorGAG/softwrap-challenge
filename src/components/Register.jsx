@@ -1,16 +1,21 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/void-dom-elements-no-children */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
+import InputMask from 'react-input-mask';
+
 import Api from '../firebase';
 
 export default function RegisterComponent() {
   const [states, setStates] = useState([]);
   const [name, setName] = useState('');
   const [age, setAge] = useState();
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState('Solteiro(a)');
   const [cpf, setCpf] = useState('');
   const [city, setCity] = useState('');
-  const [state, setState] = useState('');
+  const [state, setState] = useState('Acre');
+  const [alertBad, setAlertBad] = useState(false);
+  const [alertGood, setAlertGood] = useState(false);
 
   useEffect(() => {
     setStates([
@@ -45,7 +50,10 @@ export default function RegisterComponent() {
   }, []);
 
   const handleSubmit = () => {
-    if (name !== '' && cpf !== '') {
+    setAlertBad(false);
+    setAlertGood(false);
+
+    if (name !== '' && age !== '' && cpf !== '' && city !== '') {
       Api.db.collection('person').add({
         name,
         age,
@@ -54,23 +62,49 @@ export default function RegisterComponent() {
         city,
         state,
       }).then(() => {
-        alert('Form has been submitted');
-      }).catch((error) => {
-        alert(error);
+        setAlertGood(true);
+      }).catch(() => {
+        setAlertGood(false);
+        setAlertBad(true);
       });
+
       setName('');
       setAge('');
-      setStatus('');
+      setStatus('Solteiro(a)');
       setCpf('');
       setCity('');
-      setState('');
+      setState('Acre');
+      setAlertGood(true);
     } else {
-      alert('Some information was not filled');
+      setAlertGood(false);
+      setAlertBad(true);
     }
   };
 
   return (
-    <div className="bg-white w-2/3 mx-auto px-20 my-10">
+    <div className={`bg-white w-2/3 mx-auto px-20 my-10 ${alertBad || alertGood ? 'pt-5' : ''}`}>
+      {alertGood ? (
+        <div className="bg-green-300 border-t-4 border-green-600 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+          <div className="flex">
+            <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
+            <div>
+              <p className="font-bold">Succesful Register</p>
+              <p className="text-sm">Take a look on table to see!</p>
+            </div>
+          </div>
+        </div>
+      ) : ''}
+      {alertBad ? (
+        <div className="bg-red-400 border-t-4 border-red-700 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+          <div className="flex">
+            <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
+            <div>
+              <p className="font-bold">You miss something!</p>
+              <p className="text-sm">Make sure you filled all inputs</p>
+            </div>
+          </div>
+        </div>
+      ) : ''}
       <h1 className="text-2xl py-6 text-gray-700">Registration form</h1>
       <hr className="-mx-20" />
       <div className="py-8">
@@ -116,10 +150,11 @@ export default function RegisterComponent() {
           </div>
           <div className="w-1/2">
             <label className="text-gray-600 font-light font-bold">CPF</label>
-            <input
-              type="text"
-              placeholder="Enter your input here"
-              className="w-full mt-2 mb-6 px-5 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-indigo-600"
+            <InputMask
+              mask="999.999.999-99"
+              placeholder="000.000.000-00"
+              className="w-full mt-2 mb-6 px-5 py-2
+              border rounded-lg text-gray-700 focus:outline-none focus:border-indigo-600"
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
             />
@@ -130,7 +165,7 @@ export default function RegisterComponent() {
             <label className="text-gray-600 font-light font-bold">City</label>
             <input
               type="text"
-              placeholder="Enter your input here"
+              placeholder="Enter your city name here"
               className="w-full mt-2 mb-6 px-5 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-indigo-600"
               value={city}
               onChange={(e) => setCity(e.target.value)}
