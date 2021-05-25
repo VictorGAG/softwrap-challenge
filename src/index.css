@@ -1,6 +1,11 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  background-color: black;
+  background-color: #E5E7EB;
   font-family:'Roboto','Oxygen','Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

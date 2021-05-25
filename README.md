@@ -3,8 +3,8 @@
 ## What to do ?
 
 -[x] Initialize github
--[] Do the table
--[] Do the register  
+-[x] Do the table
+-[x] Do the register  
 -[] Initialize Firebase
 -[] Connect register to Firebase
 -[] Do confirm and error for register
