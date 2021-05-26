@@ -29,4 +29,20 @@ export default {
 
     return list;
   },
+  editPerson: async ({ personId, personData }) => {
+    const result = await db.collection('person').doc(personId).set({
+      name: personData.name,
+      age: personData.age,
+      cpf: personData.cpf,
+      status: personData.status,
+      city: personData.city,
+      state: personData.state,
+    }, { merge: true });
+
+    return result;
+  },
+  deletePerson: async ({ personId }) => {
+    const result = await db.collection('person').doc(personId).delete();
+    return result;
+  },
 };

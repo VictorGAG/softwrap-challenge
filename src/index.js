@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Table from './pages/Table';
 import Register from './pages/Register';
+import Edit from './pages/Edit';
 
 // eslint-disable-next-line react/jsx-filename-extension
 ReactDOM.render(
@@ -16,6 +17,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/" exact component={Table} />
       <Route path="/register" exact component={Register} />
+      <Route path="/edit" exact component={Edit} />
     </Switch>
   </Router>, document.getElementById('root'),
 );

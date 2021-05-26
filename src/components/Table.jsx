@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Api from '../firebase';
 
 export default function TableComponent() {
@@ -11,7 +12,7 @@ export default function TableComponent() {
     };
 
     getPerson();
-  });
+  }, []);
 
   return (
     <div className="flex justify-center">
@@ -41,7 +42,15 @@ export default function TableComponent() {
                   <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{user.cpf}</td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{user.city}</td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{user.state}</td>
-                  <td className="px-6 py-4 text-sm font-medium text-blue-400 whitespace-nowrap"><a href="a">Edit</a></td>
+                  <td className="px-6 py-4 text-sm font-medium text-blue-400 whitespace-nowrap">
+                    <Link to={{
+                      pathname: '/edit',
+                      state: { data: user },
+                    }}
+                    >
+                      Edit
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
