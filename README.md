@@ -12,7 +12,7 @@
 - [x] Do exchange people info from table
 - [x] Do alert sucess and error for edit
 - [x] Do pagination for table
-- [ ] Styling
+- [x] Styling
 - [ ] Deploy aplication
 - [ ] Test everything
 - [ ] Finalize README and send the challenge
