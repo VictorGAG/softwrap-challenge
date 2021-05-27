@@ -82,38 +82,16 @@ export default function RegisterComponent() {
   };
 
   return (
-    <div className={`bg-white w-2/3 mx-auto px-20 my-10 ${alertBad || alertGood ? 'pt-5' : ''}`}>
-      {alertGood ? (
-        <div className="bg-green-300 border-t-4 border-green-600 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
-          <div className="flex">
-            <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
-            <div>
-              <p className="font-bold">Succesful Register</p>
-              <p className="text-sm">Take a look on table to see!</p>
-            </div>
-          </div>
-        </div>
-      ) : ''}
-      {alertBad ? (
-        <div className="bg-red-400 border-t-4 border-red-700 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
-          <div className="flex">
-            <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
-            <div>
-              <p className="font-bold">You miss something!</p>
-              <p className="text-sm">Make sure you filled all inputs</p>
-            </div>
-          </div>
-        </div>
-      ) : ''}
+    <div className={`bg-white md:mx-auto md:w-2/3 md:my-10 px-20 ${alertBad || alertGood ? 'pt-5' : ''}`}>
       <h1 className="text-2xl py-6 text-gray-700">Registration form</h1>
       <hr className="-mx-20" />
       <div className="py-8">
-        <div className="flex flex-col mb-6">
+        <div className="flex flex-col mb-8">
           <span className="text-x1 text-gray-700">Personal Information</span>
           <span className="text-sm text-gray-500">Add here the new user information</span>
         </div>
-        <div className="flex">
-          <div className="w-2/3 pr-6">
+        <div className="md:flex">
+          <div className="md:w-2/3 md:pr-6">
             <label className="text-gray-600 font-light font-bold">Name</label>
             <input
               type="text"
@@ -123,7 +101,7 @@ export default function RegisterComponent() {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="w-1/3">
+          <div className="md:w-1/3">
             <label className="text-gray-600 font-light font-bold">Age</label>
             <input
               type="number"
@@ -134,8 +112,8 @@ export default function RegisterComponent() {
             />
           </div>
         </div>
-        <div className="flex">
-          <div className="w-1/2 pr-5">
+        <div className="md:flex">
+          <div className="md:w-1/2 md:pr-5">
             <label className="text-gray-600 font-light font-bold">Status</label>
             <select
               className="w-full mt-2 mb-6 h-11 border bg-white rounded-lg px-5 py-2 focus:outline-none focus:border-indigo-600"
@@ -148,7 +126,7 @@ export default function RegisterComponent() {
               <option className="py-1">Viúvo(a)</option>
             </select>
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label className="text-gray-600 font-light font-bold">CPF</label>
             <InputMask
               mask="999.999.999-99"
@@ -160,8 +138,8 @@ export default function RegisterComponent() {
             />
           </div>
         </div>
-        <div className="flex">
-          <div className="w-1/2 pr-5">
+        <div className="md:flex">
+          <div className="md:w-1/2 md:pr-5">
             <label className="text-gray-600 font-light font-bold">City</label>
             <input
               type="text"
@@ -171,7 +149,7 @@ export default function RegisterComponent() {
               onChange={(e) => setCity(e.target.value)}
             />
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label className="text-gray-600 font-light font-bold">State</label>
             <select
               className="w-full mt-2 mb-6 h-11 border bg-white rounded-lg px-5 py-2 focus:outline-none focus:border-indigo-600"
@@ -184,7 +162,29 @@ export default function RegisterComponent() {
             </select>
           </div>
         </div>
-        <div className="flex w-full justify-end">
+        <div className="flex mt-3 w-full justify-end space-x-6">
+          {alertGood ? (
+            <div className="bg-green-300 border-t-4 border-green-600 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+              <div className="flex">
+                <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
+                <div>
+                  <p className="font-bold">Succesful Register</p>
+                  <p className="text-sm">Take a look on table to see!</p>
+                </div>
+              </div>
+            </div>
+          ) : ''}
+          {alertBad ? (
+            <div className="bg-red-400 border-t-4 border-red-700 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+              <div className="flex">
+                <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
+                <div>
+                  <p className="font-bold">You miss something!</p>
+                  <p className="text-sm">Make sure you filled all inputs</p>
+                </div>
+              </div>
+            </div>
+          ) : ''}
           <button
             type="button"
             className="bg-indigo-600 text-gray-200 rounded hover:bg-indigo-400 px-4 py-2 focus:outline-none"

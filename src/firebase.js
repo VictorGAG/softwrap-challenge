@@ -10,7 +10,7 @@ const db = firebaseApp.firestore();
 
 let last = null;
 
-const query = db.collection('person').orderBy('age').limit(5);
+const query = db.collection('person').orderBy('age').limit(6);
 
 export default {
   db,
@@ -43,7 +43,7 @@ export default {
     const results = await db.collection('person')
       .orderBy('age')
       .startAfter(last)
-      .limit(5)
+      .limit(6)
       .get();
 
     results.forEach((result) => {
@@ -62,7 +62,7 @@ export default {
     db.collection('person')
       .orderBy('age')
       .startAfter(last)
-      .limit(5)
+      .limit(6)
       .get()
       .then((snap) => {
         last = snap.docs[snap.docs.length - 1];
@@ -75,7 +75,7 @@ export default {
     const results = await db.collection('person')
       .orderBy('age')
       .endAt(last)
-      .limit(5)
+      .limit(6)
       .get();
 
     results.forEach((result) => {
@@ -94,7 +94,7 @@ export default {
     db.collection('person')
       .orderBy('age')
       .endAt(last)
-      .limit(5)
+      .limit(6)
       .get()
       .then((snap) => {
         last = snap.docs[snap.docs.length - 1];
