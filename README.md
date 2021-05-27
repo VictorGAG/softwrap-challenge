@@ -7,12 +7,15 @@
 - [x] Do the register  
 - [x] Initialize Firebase
 - [x] Connect register to Firebase
-- [x] Do confirm and error for register
+- [x] Do alert sucess and error for register
 - [x] Do exclude people from table
 - [x] Do exchange people info from table
+- [x] Do alert sucess and error for edit
+- [x] Do pagination for table
 - [ ] Styling
 - [ ] Deploy aplication
 - [ ] Test everything
 - [ ] Finalize README and send the challenge
 
 ---
+                                            

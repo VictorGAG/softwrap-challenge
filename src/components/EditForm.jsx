@@ -13,8 +13,8 @@ export default function EditForm({ userData }) {
   const [cpf, setCpf] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('Acre');
-  // const [alertBad, setAlertBad] = useState(false);
-  // const [alertGood, setAlertGood] = useState(false);
+  const [alertBad, setAlertBad] = useState(false);
+  const [alertGood, setAlertGood] = useState(false);
 
   useEffect(() => {
     setStates([
@@ -59,6 +59,9 @@ export default function EditForm({ userData }) {
   }, []);
 
   const handleEdit = () => {
+    setAlertGood(false);
+    setAlertBad(false);
+
     const setEdit = async () => {
       await Api.editPerson({
         personId:
@@ -67,24 +70,48 @@ export default function EditForm({ userData }) {
           name, age, status, cpf, city, state,
         },
       }).then(() => {
-        console.log('tudo certo');
-      }).catch((e) => {
-        console.log(e);
+        setAlertGood(true);
+      }).catch(() => {
+        setAlertBad(true);
       });
     };
     setEdit();
   };
 
   const handleDelete = () => {
+    setAlertGood(false);
+    setAlertBad(false);
     Api.deletePerson({ personId: userData.id }).then(() => {
-      console.log('tudo certo');
-    }).catch((e) => {
-      console.log(e);
+      setAlertGood(true);
+    }).catch(() => {
+      setAlertBad(true);
     });
   };
 
   return (
-    <div className="bg-white w-2/3 mx-auto px-20 my-10">
+    <div className={`bg-white w-2/3 mx-auto px-20 my-10 ${alertBad || alertGood ? 'pt-5' : ''}`}>
+      {alertGood ? (
+        <div className="bg-green-300 border-t-4 border-green-600 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+          <div className="flex">
+            <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
+            <div>
+              <p className="font-bold">Succesful</p>
+              <p className="text-sm">Take a look on table to see!</p>
+            </div>
+          </div>
+        </div>
+      ) : ''}
+      {alertBad ? (
+        <div className="bg-red-400 border-t-4 border-red-700 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+          <div className="flex">
+            <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
+            <div>
+              <p className="font-bold">Ops! something goes wrong</p>
+              <p className="text-sm">Try again later</p>
+            </div>
+          </div>
+        </div>
+      ) : ''}
       <h1 className="text-2xl py-6 text-gray-700">Edit Form</h1>
       <hr className="-mx-20" />
       <div className="py-8">
