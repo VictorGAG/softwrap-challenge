@@ -28,7 +28,7 @@
       </ul>
     </li>
     <li><a href="#jornada">Jornada</a></li>
-    <li><a href="#Prints">Prints</a></li>
+    <li><a href="#prints">Prints</a></li>
   </ol>
 </details>
 
@@ -68,7 +68,7 @@ Em seguida decidi seguir o pattern do figma para realizar o projeto assim poderi
 
 Um pequeno tutorial de como baixar e inicializar uma cópia desse repositório no seu computador.
 
-### Pré Requesitos
+### Pré Requisitos
 
 Os pré requisitos são apenas o próprio GIT, ter instalado um gerenciador de pacotes como "npm" ou "yarn" e ter instalado um editor de texto como no meu caso o Visual Studio Code.
 
