@@ -7,11 +7,13 @@ export default function TableComponent() {
   const [users, setUsers] = useState([]);
   const [size, setSize] = useState();
   const [seeing, setSeeing] = useState(5);
+  const [showSpinner, setShowSpinner] = useState(true);
 
   useEffect(() => {
     const getPerson = async () => {
       const results = await Api.takePerson();
       setUsers(results);
+      setShowSpinner(false);
     };
 
     const getSize = async () => {
@@ -61,25 +63,36 @@ export default function TableComponent() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {users.map((user) => (
+              {showSpinner ? (
                 <tr>
-                  <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.name}</td>
-                  <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.age}</td>
-                  <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.status}</td>
-                  <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.cpf}</td>
-                  <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.city}</td>
-                  <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.state}</td>
-                  <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-blue-400 whitespace-nowrap">
-                    <Link to={{
-                      pathname: '/edit',
-                      state: { data: user },
-                    }}
-                    >
-                      Editar
-                    </Link>
-                  </td>
+                  <td className="animate-pulse rounded px-6 py-8 md:py-4 bg-gray-400" />
+                  <td className="animate-pulse rounded px-6 py-8 md:py-4 bg-gray-400" />
+                  <td className="animate-pulse rounded px-6 py-8 md:py-4 bg-gray-400" />
+                  <td className="animate-pulse rounded px-6 py-8 md:py-4 bg-gray-400" />
+                  <td className="animate-pulse rounded px-6 py-8 md:py-4 bg-gray-400" />
+                  <td className="animate-pulse rounded px-6 py-8 md:py-4 bg-gray-400" />
+                  <td className="animate-pulse rounded px-6 py-8 md:py-4 bg-gray-400" />
                 </tr>
-              ))}
+              )
+                : users.map((user) => (
+                  <tr>
+                    <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.name}</td>
+                    <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.age}</td>
+                    <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.status}</td>
+                    <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.cpf}</td>
+                    <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.city}</td>
+                    <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-gray-900 whitespace-nowrap">{user.state}</td>
+                    <td className="px-6 py-8 md:py-4 md:text-sm text-lg font-medium text-blue-400 whitespace-nowrap">
+                      <Link to={{
+                        pathname: '/edit',
+                        state: { data: user },
+                      }}
+                      >
+                        Editar
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
             <tfoot>
               <div className="flex items-center mx-5 my-4">

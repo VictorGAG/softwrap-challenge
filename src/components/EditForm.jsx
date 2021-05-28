@@ -100,7 +100,7 @@ export default function EditForm({ userData }) {
 
   return (
     <div className={`bg-white md:w-2/3 md:mx-auto px-20 md:my-10 ${alertBad || alertGood ? 'pt-5' : ''}`}>
-      <h1 className="text-3xl font-bold py-6 text-gray-700">Edit Form</h1>
+      <h1 className="text-3xl font-bold py-6 text-gray-700">Editar Cadastro</h1>
       <hr className="-mx-20" />
       <div className="py-8">
         <div className="flex flex-col mb-6">

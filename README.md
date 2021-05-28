@@ -15,7 +15,7 @@
 - [x] Styling
 - [x] Deploy aplication
 - [x] Test everything
-- [ ] Translate everything
+- [x] Translate everything
 - [ ] Finalize README and send the challenge
 
 ---
