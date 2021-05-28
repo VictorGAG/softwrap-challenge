@@ -17,7 +17,7 @@
       <a href="#sobre-o-projeto">Sobre o Projeto</a>
       <ul>
         <li><a href="#relátorio">Relátorio</a></li>
-        <li><a href="#tecnologias">Tecnologias Usadas</a></li>
+        <li><a href="#tecnologias-usadas">Tecnologias Usadas</a></li>
       </ul>
     </li>
     <li>
