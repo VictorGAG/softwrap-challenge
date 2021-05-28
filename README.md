@@ -27,6 +27,7 @@
         <li><a href="#instalação">Instalação</a></li>
       </ul>
     </li>
+    <li><a href="#hospedagem">Hospedagem</a></li>
     <li><a href="#jornada">Jornada</a></li>
     <li><a href="#prints">Prints</a></li>
   </ol>
@@ -96,6 +97,13 @@ Os pré requisitos são apenas o próprio GIT, ter instalado um gerenciador de p
    
    yarn start
    ```
+---
+
+### Hospedagem
+
+Foi feito deploy com o firebase, você pode conferir no link a seguir: <br />
+https://tabling-challenge.web.app
+
 ---
    
 ### Jornada
