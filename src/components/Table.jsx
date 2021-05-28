@@ -44,20 +44,20 @@ export default function TableComponent() {
     <div className="md:flex md:mx-auto md:my-28 max-w-screen-md block">
       <div className="bg-white pt-6 rounded-md mx-auto">
         <div className="flex justify-between px-8">
-          <h1 className="text-lg leading-6 font-medium text-gray-900">Table of User</h1>
-          <h1 className="text-lg leading-6 font-medium text-gray-400">See the users bellow</h1>
+          <h1 className="text-lg font-bold text-gray-900">Visualizar Cadastros</h1>
+          <h1 className="text-lg font-medium text-gray-400">Veja os registros a baixo</h1>
         </div>
         <div className="overflow-x-auto mt-6">
           <table className="w-full divide-y divide-gray-200">
             <thead className="bg-gray-800">
               <tr>
-                <th className="px-6 py-5 text-left font-medium text-white uppercase">Name</th>
-                <th className="px-6 py-5 text-left font-medium text-white uppercase">Age</th>
-                <th className="px-6 py-5 text-left font-medium text-white uppercase">Status</th>
-                <th className="px-6 py-5 text-left font-medium text-white uppercase">CPF</th>
-                <th className="px-6 py-5 text-left font-medium text-white uppercase">City</th>
-                <th className="px-6 py-5 text-left font-medium text-white uppercase">State</th>
-                <th className="px-6 py-5 text-left text-gray-800 font-medium uppercase">Edit</th>
+                <th className="px-5 py-5 text-left font-medium text-white uppercase">Nome</th>
+                <th className="px-5 py-5 text-left font-medium text-white uppercase">Idade</th>
+                <th className="px-5 py-5 text-left font-medium text-white uppercase whitespace-nowrap">Estado Civil</th>
+                <th className="px-5 py-5 text-left font-medium text-white uppercase">CPF</th>
+                <th className="px-5 py-5 text-left font-medium text-white uppercase">Cidade</th>
+                <th className="px-5 py-5 text-left font-medium text-white uppercase">Estado</th>
+                <th className="px-5 py-5 text-left text-gray-800 font-medium uppercase">Editar</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -75,7 +75,7 @@ export default function TableComponent() {
                       state: { data: user },
                     }}
                     >
-                      Edit
+                      Editar
                     </Link>
                   </td>
                 </tr>
@@ -102,7 +102,7 @@ export default function TableComponent() {
                         className="bg-indigo-600 text-gray-200 rounded hover:bg-indigo-400 px-4 py-2 focus:outline-none"
                         onClick={handleNext}
                       >
-                        Next
+                        Próximo
                       </button>
                     ) : ''}
                   </div>

@@ -17,7 +17,7 @@ export default function Navbar(room) {
         <div className="flex justify-center w-full py-5">
           <div className="w-3/4">
             <div className="flex align-center space-x-3 md:flex hidden">
-              <Link to="/register" className={`block py-2 px-4 text-base rounded-lg ${room.room === 'register' ? 'bg-gray-900' : ''} uppercase`}>registro</Link>
+              <Link to="/register" className={`block py-2 px-4 text-base rounded-lg ${room.room === 'register' ? 'bg-gray-900' : ''} uppercase`}>registrar</Link>
               <Link to="/" className={`block py-2 px-4 text-base rounded-lg ${room.room === 'table' ? 'bg-gray-900' : ''} uppercase`}>tabela</Link>
             </div>
           </div>
@@ -35,9 +35,9 @@ export default function Navbar(room) {
         </div>
 
         <div className={menuShow ? '' : ' hidden'}>
-          <div className="md:hidden ml-8">
-            <Link to="/register" className="block py-2 px-4 text-sm hover:bg-gray-900 uppercase">registro</Link>
-            <Link to="/" className="block py-2 px-4 text-sm hover:bg-gray-900 uppercase">tabela</Link>
+          <div className="md:hidden px-8 py-5">
+            <Link to="/register" className={`block py-4 px-4 text-base rounded-lg ${room.room === 'register' ? 'bg-gray-900' : ''} uppercase`}>registrar</Link>
+            <Link to="/" className={`block py-4 px-4 text-base rounded-lg ${room.room === 'table' ? 'bg-gray-900' : ''} uppercase`}>tabela</Link>
           </div>
         </div>
       </nav>

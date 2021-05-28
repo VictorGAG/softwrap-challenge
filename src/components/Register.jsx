@@ -83,29 +83,27 @@ export default function RegisterComponent() {
 
   return (
     <div className={`bg-white md:mx-auto md:w-2/3 md:my-10 px-20 ${alertBad || alertGood ? 'pt-5' : ''}`}>
-      <h1 className="text-2xl py-6 text-gray-700">Registration form</h1>
+      <h1 className="text-3xl font-bold py-6 text-gray-700">Novo Cadastro</h1>
       <hr className="-mx-20" />
       <div className="py-8">
         <div className="flex flex-col mb-8">
-          <span className="text-x1 text-gray-700">Personal Information</span>
-          <span className="text-sm text-gray-500">Add here the new user information</span>
+          <span className="text-2xl text-gray-700">Informações Pessoais</span>
+          <span className="text-sm text-gray-400">Adicione aqui as informações pessoais de usuario</span>
         </div>
         <div className="md:flex">
           <div className="md:w-2/3 md:pr-6">
-            <label className="text-gray-600 font-light font-bold">Name</label>
+            <label className="text-gray-600 font-light font-bold">Nome</label>
             <input
               type="text"
-              placeholder="Enter your name here"
               className="w-full mt-2 mb-6 px-5 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-indigo-600"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="md:w-1/3">
-            <label className="text-gray-600 font-light font-bold">Age</label>
+            <label className="text-gray-600 font-light font-bold">Idade</label>
             <input
               type="number"
-              placeholder="Enter your age here"
               className="w-full mt-2 mb-6 px-5 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-indigo-600"
               value={age}
               onChange={(e) => setAge(e.target.value)}
@@ -114,7 +112,7 @@ export default function RegisterComponent() {
         </div>
         <div className="md:flex">
           <div className="md:w-1/2 md:pr-5">
-            <label className="text-gray-600 font-light font-bold">Status</label>
+            <label className="text-gray-600 font-light font-bold">Estado Civil</label>
             <select
               className="w-full mt-2 mb-6 h-11 border bg-white rounded-lg px-5 py-2 focus:outline-none focus:border-indigo-600"
               value={status}
@@ -140,17 +138,16 @@ export default function RegisterComponent() {
         </div>
         <div className="md:flex">
           <div className="md:w-1/2 md:pr-5">
-            <label className="text-gray-600 font-light font-bold">City</label>
+            <label className="text-gray-600 font-light font-bold">Cidade</label>
             <input
               type="text"
-              placeholder="Enter your city name here"
               className="w-full mt-2 mb-6 px-5 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-indigo-600"
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
           </div>
           <div className="md:w-1/2">
-            <label className="text-gray-600 font-light font-bold">State</label>
+            <label className="text-gray-600 font-light font-bold">Estado</label>
             <select
               className="w-full mt-2 mb-6 h-11 border bg-white rounded-lg px-5 py-2 focus:outline-none focus:border-indigo-600"
               value={state}
@@ -162,14 +159,15 @@ export default function RegisterComponent() {
             </select>
           </div>
         </div>
+        <hr className="-mx-20" />
         <div className="flex mt-3 w-full justify-end space-x-6">
           {alertGood ? (
             <div className="bg-green-300 border-t-4 border-green-600 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
               <div className="flex">
                 <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
                 <div>
-                  <p className="font-bold">Succesful Register</p>
-                  <p className="text-sm">Take a look on table to see!</p>
+                  <p className="font-bold">Registrado com sucesso!</p>
+                  <p className="text-sm">De uma olhada na tabela vara ver seu registro.</p>
                 </div>
               </div>
             </div>
@@ -179,8 +177,8 @@ export default function RegisterComponent() {
               <div className="flex">
                 <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg></div>
                 <div>
-                  <p className="font-bold">You miss something!</p>
-                  <p className="text-sm">Make sure you filled all inputs</p>
+                  <p className="font-bold">Opa, parece que você esqueceu algo.</p>
+                  <p className="text-sm">Tenha certeza que preencheu todos os campos</p>
                 </div>
               </div>
             </div>
@@ -190,7 +188,7 @@ export default function RegisterComponent() {
             className="bg-indigo-600 text-gray-200 rounded hover:bg-indigo-400 px-4 py-2 focus:outline-none"
             onClick={handleSubmit}
           >
-            Submit
+            Registrar
           </button>
         </div>
       </div>

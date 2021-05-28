@@ -14,7 +14,7 @@
 - [x] Do pagination for table
 - [x] Styling
 - [x] Deploy aplication
-- [ ] Test everything
+- [x] Test everything
 - [ ] Translate everything
 - [ ] Finalize README and send the challenge
 

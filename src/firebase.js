@@ -10,7 +10,7 @@ const db = firebaseApp.firestore();
 
 let last = null;
 
-const query = db.collection('person').orderBy('age').limit(6);
+const query = db.collection('person').orderBy('name').limit(6);
 
 export default {
   db,
@@ -41,7 +41,7 @@ export default {
   takeNextPerson: async () => {
     const list = [];
     const results = await db.collection('person')
-      .orderBy('age')
+      .orderBy('name')
       .startAfter(last)
       .limit(6)
       .get();
@@ -60,7 +60,7 @@ export default {
     });
 
     db.collection('person')
-      .orderBy('age')
+      .orderBy('name')
       .startAfter(last)
       .limit(6)
       .get()
@@ -73,7 +73,7 @@ export default {
   takePreviusPerson: async () => {
     const list = [];
     const results = await db.collection('person')
-      .orderBy('age')
+      .orderBy('name')
       .endAt(last)
       .limit(6)
       .get();
@@ -92,7 +92,7 @@ export default {
     });
 
     db.collection('person')
-      .orderBy('age')
+      .orderBy('name')
       .endAt(last)
       .limit(6)
       .get()
