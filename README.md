@@ -38,15 +38,15 @@
 
 ![imagem](https://github.com/VictorGAG/softwrap-challenge/blob/main/images/Screenshot_1.jpg)
 
-Esse é o meu projeto para vaga de emprego na softwrap, onde o desafio era criar uma tabela onde os dados podessem ser adicionados e editados livremente!
+Esse é o meu projeto para vaga de emprego na softwrap, onde o desafio era criar uma tabela que os dados podessem ser adicionados e editados livremente!
 
 ### Relátorio
 
-* Bom, a primeira decisão que eu tive foi usar o TailWind mesmo sem nunca ter estudado ele a fundo, já que no documento dizia que ganhava mais pontos. Então me desafiei a estudar o TailWind enquanto fazia o projeto e o resultado não foi dos piores, apesar de eu ter que largar meu quiridinho styled-components.
+* Bom, a primeira decisão que eu tive foi usar o TailWind mesmo sem nunca ter estudado ele a fundo, já que no documento dizia que ganhava mais pontos. Então me desafiei a estudar o TailWind enquanto fazia o projeto e o resultado não foi dos piores, apesar de eu ter que largar meu queridinho styled-components.
 Em seguida decidi seguir o pattern do figma para realizar o projeto assim poderia me basear nas localizações e como ficaria o responsivo.
-* Já com o banco de dados foi batata, pois já estava acostumado a usar em outras aplicações. Minha unica dificuldade foi com a páginação, gastei bastante tempo tentando fazer ela com um resultado que me agradasse, acredito que poderia estar melhor inclusive.
-* As funcionalidades de registro e editar, foram feitas com a ideia de ser bem simples e amigavel para todos os úsuarios. Por isso usei o Input mask no cpf, para que não ficasse aquela confusão de com ponto, sem ponto, com traço, sem traço, facilitando até para hora de armazenar os dados no banco.
-* Utilizei do React Router, para que o fluxo entre as páginas fosse mais suave e necessitasse de um carregamento das mesmas.
+* Já com o banco de dados tive mais facilidade, pois já estava acostumado a usar em outras aplicações. Minha unica dificuldade foi com a páginação, gastei bastante tempo tentando fazer-la com um resultado que me agradasse.
+* As funcionalidades de registro e editar, foram feitas com a ideia de ser bem simples e amigavel para todos os úsuarios. Por isso usei o Input Mask no CPF, para que não ficasse aquela confusão de com ponto, sem ponto, com traço, sem traço, facilitando até para hora de armazenar os dados no banco.
+* Utilizei do React Router, para que o fluxo entre as páginas fosse mais suave e não necessitasse de um carregamento das mesmas.
 * Por ultimo utilizei do Material Ui para adicionar alguns icones sem precisar copiar um svg enorme da internet.
 
 ---
