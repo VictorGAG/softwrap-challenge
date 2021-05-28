@@ -13,8 +13,9 @@
 - [x] Do alert sucess and error for edit
 - [x] Do pagination for table
 - [x] Styling
-- [ ] Deploy aplication
+- [x] Deploy aplication
 - [ ] Test everything
+- [ ] Translate everything
 - [ ] Finalize README and send the challenge
 
 ---
