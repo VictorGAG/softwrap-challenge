@@ -105,6 +105,9 @@ export default {
     const size = await db.collection('person').get().then((snap) => snap.size);
     return size;
   },
+  registerPerson: async (data) => {
+    await db.collection('person').add(data);
+  },
 
   editPerson: async ({ personId, personData }) => {
     const result = await db.collection('person').doc(personId).set({

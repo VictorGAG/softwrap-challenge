@@ -49,22 +49,16 @@ export default function RegisterComponent() {
     ]);
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setAlertBad(false);
     setAlertGood(false);
 
     if (name !== '' && age !== '' && cpf !== '' && city !== '') {
-      Api.db.collection('person').add({
-        name,
-        age,
-        status,
-        cpf,
-        city,
-        state,
+      await Api.registerPerson({
+        name, age, status, cpf, city, state,
       }).then(() => {
         setAlertGood(true);
       }).catch(() => {
-        setAlertGood(false);
         setAlertBad(true);
       });
 
